@@ -8,8 +8,17 @@ def firstNumber(dataset):
     Parameter dataset: a set of numbers
     Precondition: must integers and not empty
     """
-    numbers = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0,\
-            6: 0, 7: 0, 8: 0, 9: 0}
+    numbers = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0
+        }
     for data in dataset:
         if str(data)[:1] == "1":
             numbers[1] = numbers[1] + 1
