@@ -1,3 +1,9 @@
+"""
+
+Author:     Christian M. Fulton
+Date:       23/04/2021
+Modified:   23/04/2021
+"""
 def firstNumber(dataset):
     """
     Calculates the total occurrences of integers(1:9)
@@ -7,6 +13,7 @@ def firstNumber(dataset):
 
     Parameter dataset: a set of numbers
     Precondition: must integers and not empty
+
     """
     numbers = {
         1: 0,
