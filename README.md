@@ -11,5 +11,7 @@ Newcomb-Benfords Law:
     digits, third digits, digit combinations, and so on.
 
 Goal:
-    A program that takes datasets and identifies the occurrences
-    of integers[1:9] storing and plotting the occurrences of each.
+    Measure and plot the occurrence of integers[1:9] from 
+    user provided dataset.
+    Measure the occurrence of each integer in the first place value in set.
+    Extended: measure and plot occurrence of int for each place value.
