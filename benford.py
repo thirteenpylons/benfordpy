@@ -1,3 +1,27 @@
+"""
+Functions for measuring occurrence of integer.
+
+Author: Christian M. Fulton
+Date: 23/04/2021
+"""
+import csv
+
+
+def openDataset(file):
+    """
+    Used to open the dataset that will be used
+
+    Example:
+
+    Parameter file: Must be existing csv file and correct path
+    Precondition:
+    """
+    with open(file) as f:
+        er = csv.reader(f)
+        ed = list(er)
+        return ed
+
+
 def firstNumber(dataset):
     """
     Calculates the total occurrences of integers(1:9)
@@ -8,6 +32,7 @@ def firstNumber(dataset):
     Parameter dataset: a set of numbers
     Precondition: must integers and not empty
     """
+
     numbers = {
         1: 0,
         2: 0,
