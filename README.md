@@ -15,3 +15,6 @@ Goal:
     user provided dataset.
     Measure the occurrence of each integer in the first place value in set.
     Extended: measure and plot occurrence of int for each place value.
+
+Documentation:
+    

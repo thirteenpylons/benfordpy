@@ -1,5 +1,4 @@
 """
-<<<<<<< HEAD
 Functions for measuring occurrence of integer.
 
 Author: Christian M. Fulton
@@ -23,13 +22,6 @@ def openDataset(file):
         return ed
 
 
-=======
-
-Author:     Christian M. Fulton
-Date:       23/04/2021
-Modified:   23/04/2021
-"""
->>>>>>> 80f98a0f0b6b82855436ea364cbed743814bdca6
 def firstNumber(dataset):
     """
     Calculates the total occurrences of integers(1:9)
