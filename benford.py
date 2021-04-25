@@ -6,6 +6,7 @@ Date: 23/04/2021
 Modified: 25/04/2021
 """
 import csv
+import matplotlib.pyplot as plt
 
 
 # store occurrences:
@@ -74,3 +75,18 @@ def percent():
     for k, v in NUMBERS.items():
         pct = v * 100.0 / s
         print(k, pct)
+
+def plotData(x):
+    """
+    plot data
+    """
+    for k, v in x.items():
+        s = sum(NUMBERS)
+        pct = v * 100.0 / s
+        xs = [v]
+        ys = [pct]
+        plt.plot(xs, ys)
+        plt.title("name_me_title")
+        plt.xlabel("Digits")
+        plt.ylabel("Frequency(%)")
+        plt.show()
