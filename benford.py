@@ -3,10 +3,12 @@ Functions for measuring occurrence of integer.
 
 Author: Christian M. Fulton
 Date: 23/04/2021
+Modified: 25/04/2021
 """
 import csv
 
 
+# store occurrences:
 NUMBERS = {
     1: 0,
     2: 0,
