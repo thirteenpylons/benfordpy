@@ -24,10 +24,10 @@ def test_firstNumber():
     
     #nums = [random.randrange(1, 10000, 1) for i in range(9)]
     #firstNums = [x for i in nums[:1]]
-    #result = benford.firstNumber(str(nums))
+    #result = benford.firstNumber(nums)
     #print(nums, result)
-    print(result)
 
+    # need production test case
 
 test_firstNumber()
 print("All tests completed successfully.")

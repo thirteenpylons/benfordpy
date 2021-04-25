@@ -21,14 +21,24 @@ NUMBERS = {
     9: 0
     }
 
+def main():
+    """
+    Run main if not imported
+    """
+    print("Enter path to dataset including file.")
+    print("Example: ./testFiles/election2020/house_state.csv")
+    userInput = input("path: ")
+    ds = openDataset(userInput)
+    firstNumber(ds)
+
+
+
 def openDataset(file):
     """
     Used to open the dataset that will be used
 
-    Example:
-
-    Parameter file: Must be existing csv file and correct path
-    Precondition:
+    Parameter file: Must be existing csv file with correct path
+    Precondition: file is a non-empty string
     """
     with open(file) as f:
         er = csv.reader(f)
@@ -41,10 +51,8 @@ def firstNumber(dataset):
     Calculates the total occurrences of integers(1:9)
     within the given dataset.
 
-    Example:
-
-    Parameter dataset: a set of numbers
-    Precondition: must integers and not empty
+    Parameter dataset: a dataset consisting of numbers
+    Precondition: integers and not empty
 
     """
 
@@ -74,3 +82,7 @@ def percent():
     for k, v in NUMBERS.items():
         pct = v * 100.0 / s
         print(k, pct)
+
+
+if __name__ == '__main__':
+    main()
