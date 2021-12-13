@@ -42,8 +42,7 @@ def openDataset(file):
     """
     with open(file) as f:
         er = csv.reader(f)
-        ed = list(er)
-        return ed
+        return list(er)
 
 
 def firstNumber(dataset):
