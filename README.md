@@ -11,7 +11,7 @@
     digits, third digits, digit combinations, and so on.
 
 ## Goal
-    Measure and plot the occurrence of integers[1:9] from 
+    Measure and plot the occurrence of integers 1 through 9 from 
     user provided dataset.
     Measure the occurrence of each integer in the first place value in set.
     Extended: measure and plot occurrence of int for each place value.
