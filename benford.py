@@ -41,21 +41,24 @@ def firstNumber(dataset) -> dict:
 
     """
     count = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0
-    }
+        0: 0, # I don't need to count zeros...(temp workaround)
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0
+        }
 
+    # TODO: Fix this nonsense... counting str value
+    # if value is 40 returning 0
     for data in dataset:
         for d in data[1:2]:
-            if d != '' and int(d):
-                first = d[0]
+            if d.isdigit():
+                first = int(d[0])
                 count[first] += 1
     return count
 

@@ -9,8 +9,9 @@ Date:       23/04/2021
 Modified:   25/04/2021
 """
 
-import benford
 import random
+import benford
+import helpers
 
 
 def test_firstNumber():
@@ -28,6 +29,40 @@ def test_firstNumber():
     #print(nums, result)
 
     # need production test case
+
+
+def test_thisList():
+    """
+    """
+    count = {
+        0: 0, # I don't need to count zeros...(temp workaround)
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0
+        }
+
+    table = [[1, 11, 18, 30, 41],
+            [6, 12, 17, 18, 42],
+            [7, 12, 21, 25, 31],
+            [11, 16, 32, 37, 39],
+            [4, 7, 11, 25, 40],
+            [9, 28, 40, 42, 44],
+            [6, 17, 22, 27, 34],
+            [9, 17, 19, 40, 41],
+            [1, 4, 26, 35, 42],
+            [11, 15, 35, 39, 40],
+            [10, 12, 14, 20, 26]]
+
+    answer = {0: 0, 1: 19, 2: 9, 3: 9, 4: 12, 5: 0, 6: 2, 7: 2, 8: 0, 9: 1}
+
+    result = helpers.thisList(table)
+    assert answer == result
 
 test_firstNumber()
 print("All tests completed successfully.")
