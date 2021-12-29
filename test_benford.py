@@ -6,7 +6,7 @@ that test the various functions in the module benford.
 
 Author:     Christian M. Fulton
 Date:       23/04/2021
-Modified:   25/04/2021
+Modified:   29/12/2021
 """
 
 import random
@@ -25,6 +25,23 @@ def test_extractData():
 
     This must take a dataset stored in .csv
     """
+    # I need to use a test csv
+    # this will be done outside of the extractData function to ensure flexability
+    # first test a dataset that will fail...
+    dataset_location = "./testFiles/test_data_failing.csv"
+    raw_data = helpers.read_csv(dataset_location)
+    result = helpers.extractData(raw_data)
+
+    # test against wrong file type too
+
+    dataset_location = "./testFiles/test_data_passing.csv"
+
+    expected_result = "figure that out..."
+
+
+
+    # must return a list
+    # else string fail
 
 def test_firstNumber():
     """

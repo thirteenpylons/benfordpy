@@ -36,18 +36,19 @@ def main():
     # assign path
     data_path = './testFiles/powerball_usa.csv'
     # extract raw data
-    extract_data = read_csv(data_path)
+    raw_data = read_csv(data_path)
     # clean data into list
-    as_list = makeList(extract_data)
+    as_list = extractData(read_data)
     # work with that embedded list.
 
 
-def makeList(dataset):
+def extractData(dataset):
     """
     Pass a list through this function
 
     Identify the depth of the list and break it down.
     """
+
     result = []
     for data in dataset:
         for d in data[:1]:
