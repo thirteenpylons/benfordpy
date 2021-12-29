@@ -14,46 +14,13 @@ import benford
 import helpers
 
 
-def test_extractData():
-    """
-    Extracting the data
-
-    ExtractData must iterate through columns of dataset and check if the value
-    is numerical.
-
-    Must return a list type if numerical values exist; else: return string notice
-
-    This must take a dataset stored in .csv
-    """
-    # I need to use a test csv
-    # this will be done outside of the extractData function to ensure flexability
-    # first test a dataset that will fail...
-    dataset_location = "./testFiles/test_data_failing.csv"
-    raw_data = helpers.read_csv(dataset_location)
-    result = helpers.extractData(raw_data)
-
-    # test against wrong file type too
-    dataset_location = "./testFiles/test_wrong_data.json"
-
-    dataset_location = "./testFiles/test_data_passing.csv"
-
-    expected_result = "figure that out..."
-
-
-
-    # must return a list
-    # else string fail
-
 def test_firstNumber():
     """
     Test procedure for firstNumber.
     Extract the first number from list of extracted data and store number of
     occurrences of each number(1 through 9) in dict.
-
     Verify that dict is zero value when it is and other when not.
-
     Verify that first number is extracted against dataset.
-
     Must return dict() type.
     """
     print("Testing firstNumber...")
