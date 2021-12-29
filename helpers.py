@@ -28,20 +28,6 @@ Modified: 28.Dec.2021
 import csv
 
 
-def main():
-    """
-    not the real main func...
-    test helpers here.
-    """
-    # assign path
-    data_path = './testFiles/powerball_usa.csv'
-    # extract raw data
-    raw_data = read_csv(data_path)
-    # clean data into list
-    as_list = extractData(raw_data)
-    # work with that embedded list.
-
-
 def extractData(dataset):
     """
     Pass a list through this function
