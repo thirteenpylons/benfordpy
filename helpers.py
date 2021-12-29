@@ -38,7 +38,7 @@ def main():
     # extract raw data
     raw_data = read_csv(data_path)
     # clean data into list
-    as_list = extractData(read_data)
+    as_list = extractData(raw_data)
     # work with that embedded list.
 
 

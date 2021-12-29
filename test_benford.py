@@ -33,6 +33,7 @@ def test_extractData():
     result = helpers.extractData(raw_data)
 
     # test against wrong file type too
+    dataset_location = "./testFiles/test_wrong_data.json"
 
     dataset_location = "./testFiles/test_data_passing.csv"
 
