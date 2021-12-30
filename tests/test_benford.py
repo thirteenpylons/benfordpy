@@ -10,8 +10,9 @@ Modified:   29/12/2021
 """
 import pytest
 import random
-import benford
-import helpers
+from benfordpy import benford
+from benfordpy import utils
+
 
 pytest.mark.skipif(True, "Not Implemented")
 def test_firstNumber():
@@ -34,6 +35,7 @@ def test_firstNumber():
     #print(nums, result)
 
     # need production test case
+
 
 @pytest.mark.skipif(True, "Not Implemented")
 def test_thisList():
@@ -66,7 +68,7 @@ def test_thisList():
 
     answer = {0: 0, 1: 19, 2: 9, 3: 9, 4: 12, 5: 0, 6: 2, 7: 2, 8: 0, 9: 1}
 
-    result = helpers.thisList(table)
+    result = utils.thisList(table)
     assert answer == result
 
 test_firstNumber()

@@ -9,8 +9,7 @@ Date:       23/04/2021
 Modified:   29/12/2021
 """
 import pytest
-import helpers
-
+from benfordpy import utils
 
 def test_extractData():
     """
@@ -28,8 +27,8 @@ def test_extractData():
     # first test a dataset that will fail...
     print("Testing extractData with failing csv dataset...")
     dataset_location = "./testData/test_data_failing.csv"
-    raw_data = helpers.read_csv(dataset_location)
-    result = helpers.extractData(raw_data)
+    raw_data = utils.read_csv(dataset_location)
+    result = utils.extractData(raw_data)
     assert type(result) == str
     assert result == "Failed to find integer values."
 
@@ -38,8 +37,8 @@ def test_extractData():
 
     print("Testing extractData with passing csv dataset...")
     dataset_location = "./testData/test_data_passing.csv"
-    raw_data = helpers.read_csv(dataset_location)
-    result = helpers.extractData(raw_data)
+    raw_data = utils.read_csv(dataset_location)
+    result = utils.extractData(raw_data)
 
     assert type(result) == list
 
