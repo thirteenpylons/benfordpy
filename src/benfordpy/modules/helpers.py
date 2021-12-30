@@ -42,7 +42,7 @@ def extractData(dataset):
     return result
 
 
-def read_csv(filename):
+def readCsv(filename):
     """
     Returns the contents read from the CSV file filename.
     

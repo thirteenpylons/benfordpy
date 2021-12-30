@@ -8,12 +8,12 @@ Author:     Christian M. Fulton
 Date:       23/04/2021
 Modified:   29/12/2021
 """
-
+import pytest
 import random
 import benford
 import helpers
 
-
+pytest.mark.skipif(True, "Not Implemented")
 def test_firstNumber():
     """
     Test procedure for firstNumber.
@@ -35,7 +35,7 @@ def test_firstNumber():
 
     # need production test case
 
-
+@pytest.mark.skipif(True, "Not Implemented")
 def test_thisList():
     """
     """

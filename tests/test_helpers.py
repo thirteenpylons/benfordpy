@@ -8,6 +8,7 @@ Author:     Christian M. Fulton
 Date:       23/04/2021
 Modified:   29/12/2021
 """
+import pytest
 import helpers
 
 
@@ -44,6 +45,14 @@ def test_extractData():
 
     # must return a list
     # else string fail
+
+
+@pytest.mark.skipif(True, "Not implemented")
+def test_readCsv():
+    """
+    Validate csv
+    """
+    NotImplementedError
 
 
 print("Testing extractData...")
