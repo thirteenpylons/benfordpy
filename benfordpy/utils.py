@@ -26,6 +26,51 @@ Date: 23.Dec.2021
 Modified: 28.Dec.2021
 """
 import csv
+import pandas as pd
+
+
+def iterateColumns(headers, dataset):
+    """
+    Iterate through the columns using the headers extracted
+
+    # expect this::
+    result = {
+            "header_name": {
+                            1: 50,
+                            2...,
+                            }
+            "other_header":...
+            }
+
+    Parameter headers: Must be non empty list of headers in dataset
+    Preconditions:
+
+    Parameter dataset: Must be valid csv dataset
+    Preconditions:
+    """
+    header_count = len(headers)
+    # for the range(header_count):
+
+    datasets = {
+                
+    }
+    for h in headers:
+        d = pd.read_csv(dataset)[headers].values
+    
+    # figure out how to return multiple sets
+    # maybe have them in nested lists in dict
+
+
+
+def extractHeaders(dataset) -> list:
+    """
+    Extract the headers from the dataset
+
+    Parameter dataset: This must be a dataset
+    Preconditions: Non empty csv dataset
+    """
+    df = pd.read_csv(dataset)
+    return list(df.columns)
 
 
 def countLeading(dataset) -> dict:
@@ -94,3 +139,11 @@ def percent(numbers):
     for k, v in numbers.items():
         pct = v * 100.0 / s
         print(k, pct)
+
+
+class Counts:
+    """
+    Return dict per obj
+    """
+    def __init__(self):
+        NotImplementedError
