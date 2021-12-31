@@ -56,7 +56,7 @@ def firstNumber(dataset) -> dict:
     # TODO: Fix this nonsense... counting str value
     # if value is 40 returning 0
     for data in dataset:
-        for d in data[1:2]:
+        for d in data:
             if d.isdigit():
                 first = int(d[0])
                 count[first] += 1

@@ -14,7 +14,7 @@ from benfordpy import benford
 from benfordpy import utils
 
 
-pytest.mark.skipif(True, "Not Implemented")
+@pytest.mark.skip("Not Implemented")
 def test_firstNumber():
     """
     Test procedure for firstNumber.
@@ -37,7 +37,7 @@ def test_firstNumber():
     # need production test case
 
 
-@pytest.mark.skipif(True, "Not Implemented")
+@pytest.mark.skip("Not Implemented")
 def test_thisList():
     """
     """
