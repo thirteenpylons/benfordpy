@@ -15,6 +15,7 @@ class Dataset:
     def __init__(self, filename):
         self.filename = filename
         self.dataset = self.readCsv(self.filename)
+        self.panda_data = pd.read_csv(self.filename)
 
 
     def iterateColumns(self, headers, dataset):
@@ -57,7 +58,7 @@ class Dataset:
         Parameter dataset: This must be a dataset
         Preconditions: Non empty csv dataset
         """
-        df = pd.read_csv(self.dataset)
+        df = self.panda_data
         return list(df.columns)
 
 
