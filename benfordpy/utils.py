@@ -37,12 +37,17 @@ def extractData(dataset):
 
     result = []
     for data in dataset:
-        for d in data[:1]:
-            result.append(d)
+        for d in data:
+            if d.isdigit():
+                result.append(int(d))
+    if len(result) > 0:
+        result = result
+    else:
+        result = "Failed to find integer values."
     return result
 
 
-def read_csv(filename):
+def readCsv(filename):
     """
     Returns the contents read from the CSV file filename.
     
