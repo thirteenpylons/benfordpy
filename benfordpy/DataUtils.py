@@ -18,6 +18,7 @@ class Dataset:
         self.panda_data = pd.read_csv(self.filename)
 
 
+
     def iterateColumns(self, headers, dataset):
         """
         Iterate through the columns using the headers extracted
