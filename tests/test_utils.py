@@ -11,6 +11,30 @@ Modified:   29/12/2021
 import pytest
 from benfordpy import utils
 
+
+def test_countLeading():
+    """
+    
+    """
+    expected_result = {
+                        1: 3,
+                        2: 1,
+                        3: 2,
+                        4: 1,
+                        5: 1,
+                        6: 2,
+                        7: 0,
+                        8: 1,
+                        9: 1
+                        }
+
+    dataset_location = "./testData/test_data_passing.csv"
+    raw_data = utils.readCsv(dataset_location)
+    the_list = utils.extractData(raw_data)
+    result = utils.countLeading(the_list)
+    assert result == expected_result, repr(f"Returned {result}, expected {expected_result}.")
+
+
 def test_extractData():
     """
     Extracting the data
@@ -35,18 +59,18 @@ def test_extractData():
                         53,
                         1250,
                         623
-                    ]
+                        ]
+
     print("Testing extractData with passing csv dataset...")
+
     dataset_location = "./testData/test_data_passing.csv"
     raw_data = utils.readCsv(dataset_location)
     result = utils.extractData(raw_data)
-    assert type(result) == list, repr(f"Invalid datatype {type(result)}... Must be list.")
-    assert result == expected_result, repr(f"Got {result} instead of {expected_result}")
+    assert type(result) == list, repr(f"Invalid datatype {type(result)}... Must return a list.")
+    assert result == expected_result, repr(f"Returned {result} instead of {expected_result}")
 
-    # I need to use a test csv
-    # this will be done outside of the extractData function to ensure flexability
-    # first test a dataset that will fail...
     print("Testing extractData with failing csv dataset...")
+
     dataset_location = "./testData/test_data_failing.csv"
     raw_data = utils.readCsv(dataset_location)
     result = utils.extractData(raw_data)
@@ -70,4 +94,6 @@ def test_readCsv():
 
 print("Testing extractData...")
 test_extractData()
+print("Testing countLeading...")
+test_countLeading()
 print("All tests completed successfully.")

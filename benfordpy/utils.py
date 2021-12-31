@@ -28,7 +28,32 @@ Modified: 28.Dec.2021
 import csv
 
 
-def extractData(dataset):
+def countLeading(dataset) -> dict:
+    """
+    Take the dataset and slice the leading digit and count the 
+    occurrences and return as a dict
+    """
+    count = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+        9: 0
+        }
+
+    for d in dataset:
+        while (d >= 10):
+            d = d // 10
+        count[d] += 1
+
+    return count
+
+
+def extractData(dataset) -> list:
     """
     Pass a list through this function
 
@@ -40,16 +65,13 @@ def extractData(dataset):
         for d in data:
             if d.isdigit():
                 result.append(int(d))
-    if len(result) > 0:
-        result = result
-    else:
-        result = "Failed to find integer values."
+    result = result or "Failed to find integer values."
     return result
 
 
-def readCsv(filename):
+def readCsv(filename) -> list:
     """
-    Returns the contents read from the CSV file filename.
+    Returns the contents read from the CSV file filename as list.
     
     This function reads the contents of the file filename and returns the contents as
     a 2-dimensional list. Each element of the list is a row, with the first row being
@@ -64,3 +86,11 @@ def readCsv(filename):
         wrap = csv.reader(f)
         data = list(wrap)
     return data
+
+
+# TODO: calculate percent
+def percent(numbers):
+    s = sum(numbers)
+    for k, v in numbers.items():
+        pct = v * 100.0 / s
+        print(k, pct)
