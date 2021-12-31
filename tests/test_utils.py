@@ -8,6 +8,7 @@ TODO:
     Test for integers in multiple columns(These should be treated as an instance)
         (possible refactoring just for that)
     Working with 2d lists.
+    for len(dataset) to determine how many instantiations
 
 Author:     Christian M. Fulton
 Date:       23/04/2021
@@ -15,6 +16,25 @@ Modified:   29/12/2021
 """
 import pytest
 from benfordpy import utils
+
+
+def test_extractHeaders():
+    """
+    
+    """
+    expected_result = [
+                        'state',
+                        'county',
+                        'candidate',
+                        'party',
+                        'votes',
+                        'won',
+                        'Unnamed: 6'
+                        ]
+    dataset_location = "./testData/test_data_passing.csv"
+    result = utils.extractHeaders(dataset_location)
+    assert type(result) == list
+    assert result == expected_result
 
 
 def test_countLeading():
