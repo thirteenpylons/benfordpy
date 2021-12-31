@@ -4,6 +4,11 @@ Unit tests for module benford
 When run as a script, this module invokes several procedures
 that test the various functions in the module benford.
 
+TODO: 
+    Test for integers in multiple columns(These should be treated as an instance)
+        (possible refactoring just for that)
+    Working with 2d lists.
+
 Author:     Christian M. Fulton
 Date:       23/04/2021
 Modified:   29/12/2021

@@ -1,0 +1,3 @@
+import benford
+
+benford.main()
