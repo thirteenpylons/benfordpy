@@ -94,4 +94,6 @@ def test_readCsv():
 
 print("Testing extractData...")
 test_extractData()
+print("Testing countLeading...")
+test_countLeading()
 print("All tests completed successfully.")

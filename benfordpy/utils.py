@@ -46,8 +46,9 @@ def countLeading(dataset) -> dict:
         }
 
     for d in dataset:
-        first_number = str(d)
-        count[int(first_number[0])] += 1
+        while (d >= 10):
+            d = d // 10
+        count[d] += 1
 
     return count
 
@@ -85,3 +86,11 @@ def readCsv(filename) -> list:
         wrap = csv.reader(f)
         data = list(wrap)
     return data
+
+
+# TODO: calculate percent
+def percent(numbers):
+    s = sum(numbers)
+    for k, v in numbers.items():
+        pct = v * 100.0 / s
+        print(k, pct)
