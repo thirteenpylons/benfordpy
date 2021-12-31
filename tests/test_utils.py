@@ -33,24 +33,24 @@ def test_extractData():
                         2031,
                         9,
                         53,
-                        1259,
+                        1250,
                         623
                     ]
     print("Testing extractData with passing csv dataset...")
     dataset_location = "./testData/test_data_passing.csv"
-    raw_data = utils.read_csv(dataset_location)
+    raw_data = utils.readCsv(dataset_location)
     result = utils.extractData(raw_data)
-    assert type(result) == list
-    assert result == expected_result
+    assert type(result) == list, repr(f"Invalid datatype {type(result)}... Must be list.")
+    assert result == expected_result, repr(f"Got {result} instead of {expected_result}")
 
     # I need to use a test csv
     # this will be done outside of the extractData function to ensure flexability
     # first test a dataset that will fail...
     print("Testing extractData with failing csv dataset...")
     dataset_location = "./testData/test_data_failing.csv"
-    raw_data = utils.read_csv(dataset_location)
+    raw_data = utils.readCsv(dataset_location)
     result = utils.extractData(raw_data)
-    assert type(result) == str
+    assert type(result) == str, repr(f"Invalid datatype {type(result)}... expecting str for failing set.")
     assert result == "Failed to find integer values."
 
     # test against wrong file type too
@@ -60,7 +60,7 @@ def test_extractData():
     # else string fail
 
 
-@pytest.mark.skipif(True, "Not implemented")
+@pytest.mark.skip("Not implemented")
 def test_readCsv():
     """
     Validate csv
