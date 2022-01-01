@@ -11,12 +11,16 @@ Modified: 31.Dec.2021
 import csv
 import pandas as pd
 
+from benfordpy.utils import extractHeaders
+
+
 class Dataset:
     def __init__(self, filename):
         self.filename = filename
+        
         self.dataset = self.readCsv(self.filename)
         self.panda_data = pd.read_csv(self.filename)
-
+        self.headers = self.extractHeaders()
 
 
     def iterateColumns(self, headers, dataset):
