@@ -1,5 +1,5 @@
 """
-Unit tests for module benford
+Unit tests for module utils
 
 When run as a script, this module invokes several procedures
 that test the various functions in the module benford.
@@ -11,8 +11,8 @@ TODO:
     for len(dataset) to determine how many instantiations
 
 Author:     Christian M. Fulton
-Date:       23/04/2021
-Modified:   29/12/2021
+Date:       23.Apr.2021
+Modified:   02.Jan.2022
 """
 import pytest
 from benfordpy import utils
