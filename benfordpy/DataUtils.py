@@ -6,7 +6,7 @@ Using the Dataset class:
 
 Author: Christian M. Fulton
 Date: 31.Dec.2021
-Modified: 31.Dec.2021
+Modified: 02.Jan.2022
 """
 import csv
 import pandas as pd
@@ -21,9 +21,10 @@ class Dataset:
         self.dataset = self.readCsv(self.filename)
         self.panda_data = pd.read_csv(self.filename)
         self.headers = self.extractHeaders()
+        self.extracted_data = self.extractData()
 
 
-    def iterateColumns(self, headers, dataset):
+    def iterateColumns(self):
         """
         Iterate through the columns using the headers extracted
 
@@ -43,14 +44,14 @@ class Dataset:
         Preconditions:
         """
         NotImplementedError
-        header_count = len(headers)
+        header_count = len(self.headers)
         # for the range(header_count):
 
         datasets = {
                     
         }
-        for h in headers:
-            d = pd.read_csv(dataset)[headers].values
+        for h in self.headers:
+            d = self.panda_data[self.headers].values
         
         # figure out how to return multiple sets
         # maybe have them in nested lists in dict
@@ -84,7 +85,7 @@ class Dataset:
             9: 0
             }
 
-        for d in self.dataset:
+        for d in self.extracted_data:
             while (d >= 10):
                 d = d // 10
             count[d] += 1
