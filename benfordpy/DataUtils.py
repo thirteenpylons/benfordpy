@@ -97,6 +97,8 @@ class Dataset:
         """
         Pass a list through this function
 
+        TODO::FIX THIS
+
         Identify the depth of the list and break it down.
         """
 
