@@ -19,17 +19,17 @@ from benfordpy import DataUtils
 
 
 @pytest.fixture(scope="module")
-def dataset():
+def passing_dataset():
     return DataUtils.Dataset("./testData/test_data_passing.csv")
 
 
-def test_iterateColumns(dataset):
+def test_iterateColumns(passing_dataset):
     """
     """
     pass
 
 
-def test_extractHeaders(dataset):
+def test_extractHeaders(passing_dataset):
     expected_result = [
                         'state',
                         'county',
@@ -40,10 +40,10 @@ def test_extractHeaders(dataset):
                         'Unnamed: 6'
                         ]
 
-    assert dataset.extractHeaders() == expected_result, repr(f"Expected {expected_result} and got {dataset}")
+    assert passing_dataset.extractHeaders() == expected_result, repr(f"Expected {expected_result} and got {passing_dataset}")
 
 
-def test_countLeading(dataset):
+def test_countLeading(passing_dataset):
     """
     """
     expected_result = {
@@ -57,10 +57,10 @@ def test_countLeading(dataset):
                         8: 1,
                         9: 1
                         }
-    assert dataset.countLeading() == expected_result
+    assert passing_dataset.countLeading() == expected_result
 
 
-def test_extractData(dataset):
+def test_extractData(passing_dataset):
     """
     """
     expected_result = [
@@ -77,10 +77,84 @@ def test_extractData(dataset):
                         1250,
                         623
                         ]
-    assert dataset.extracted_data == expected_result
+    assert passing_dataset.extracted_data == expected_result
 
 
-def test_readCsv(dataset):
+def test_readCsv(passing_dataset):
     """
     """
     pass
+
+
+@pytest.fixture(scope="module")
+def powerball_dataset():
+    return DataUtils.Dataset("./testData/partial_powerball.csv")
+
+
+def test_iterateColumns(powerball_dataset):
+    """
+    """
+    pass
+
+
+def test_extractHeaders(powerball_dataset):
+    expected_result = [
+                        'DrawingNumbers',
+                        'Powerball',
+                        'Result',
+                        'Jackpot',
+                        'Weekday',
+                        'Date',
+                        'Unnamed: 6'
+                        ]
+
+
+    assert powerball_dataset.extractHeaders() == expected_result, repr(f"Expected {expected_result} and got {powerball_dataset}")
+
+
+def test_countLeading(powerball_dataset):
+    """
+    """
+    expected_result = {
+                        1: 3,
+                        2: 1,
+                        3: 2,
+                        4: 1,
+                        5: 1,
+                        6: 2,
+                        7: 0,
+                        8: 1,
+                        9: 1
+                        }
+    assert powerball_dataset.countLeading() == expected_result
+
+
+def test_extractData(powerball_dataset):
+    """
+    """
+    expected_result = [
+                        44352,
+                        39332,
+                        1115,
+                        616,
+                        191678,
+                        82545,
+                        3785,
+                        2031,
+                        9,
+                        53,
+                        1250,
+                        623
+                        ]
+
+    assert powerball_dataset.extracted_data == expected_result
+
+
+def test_readCsv(powerball_dataset):
+    """
+    """
+    pass
+
+
+def create_dataset_obj(name: str = None) -> DataUtils.Dataset:
+    dataset = "test_data_passing.csv" if name is None else name
