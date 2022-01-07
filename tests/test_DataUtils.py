@@ -164,7 +164,5 @@ def create_dataset_obj(name: str = None) -> Dataset:
 # Trying to extract each column from the dataset and thinking about
 # placing each column in dict() or assigning it's own variable.
 # dict { header1: {1:0,2:...}, header2:...} 2d dict is looking most likely.
-columns = []
 count = len(passing_dataset.headers)
-for i in range(count):
-    columns.append(passing_dataset.extractColumn(i))
+columns = [passing_dataset.extractColumn(i) for i in range(count)]
