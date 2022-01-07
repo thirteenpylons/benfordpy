@@ -6,12 +6,10 @@ Using the Dataset class:
 
 Author: Christian M. Fulton
 Date: 31.Dec.2021
-Modified: 02.Jan.2022
+Modified: 03.Jan.2022
 """
 import csv
 import pandas as pd
-
-from benfordpy.utils import extractHeaders
 
 
 class Dataset:
@@ -22,6 +20,19 @@ class Dataset:
         self.panda_data = pd.read_csv(self.filename)
         self.headers = self.extractHeaders()
         self.extracted_data = self.extractData()
+
+    
+    def __str__(self):
+        return f"{self.dataset}"
+
+    def extractColumn(self, i):
+        """
+        Will extract columns that contain integer values.
+
+        Parameter i: Index of column to extract.
+        Precondition: i must be a non empty integer
+        """
+        NotImplementedError
 
 
     def iterateColumns(self):

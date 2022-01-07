@@ -12,15 +12,15 @@ TODO:
 
 Author:     Christian M. Fulton
 Date:       02.Jan.2022
-Modified:   02.Jan.2022
+Modified:   03.Jan.2022
 """
 import pytest
-from benfordpy import DataUtils
+from benfordpy.DataUtils import Dataset
 
 
 @pytest.fixture(scope="module")
 def passing_dataset():
-    return DataUtils.Dataset("./testData/test_data_passing.csv")
+    return Dataset("./testData/test_data_passing.csv")
 
 
 def test_iterateColumns(passing_dataset):
@@ -88,7 +88,7 @@ def test_readCsv(passing_dataset):
 
 @pytest.fixture(scope="module")
 def powerball_dataset():
-    return DataUtils.Dataset("./testData/partial_powerball.csv")
+    return Dataset("./testData/partial_powerball.csv")
 
 
 def test_iterateColumns(powerball_dataset):
@@ -156,5 +156,15 @@ def test_readCsv(powerball_dataset):
     pass
 
 
-def create_dataset_obj(name: str = None) -> DataUtils.Dataset:
+def create_dataset_obj(name: str = None) -> Dataset:
     dataset = "test_data_passing.csv" if name is None else name
+
+
+# Where I left off...
+# Trying to extract each column from the dataset and thinking about
+# placing each column in dict() or assigning it's own variable.
+# dict { header1: {1:0,2:...}, header2:...} 2d dict is looking most likely.
+columns = []
+count = len(passing_dataset.headers)
+for i in range(count):
+    columns.append(passing_dataset.extractColumn(i))
