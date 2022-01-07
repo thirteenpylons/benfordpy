@@ -21,6 +21,9 @@ class Dataset:
         self.headers = self.extractHeaders()
         self.extracted_data = self.extractData()
 
+    
+    def __str__(self):
+        return f"{self.dataset}"
 
     def extractColumn(self, i):
         """
@@ -30,6 +33,7 @@ class Dataset:
         Precondition: i must be a non empty integer
         """
         NotImplementedError
+
 
     def iterateColumns(self):
         """

@@ -162,7 +162,7 @@ def create_dataset_obj(name: str = None) -> Dataset:
 
 # Where I left off...
 # Trying to extract each column from the dataset and thinking about
-# placing each column in dict() or assigning it's on variable.
+# placing each column in dict() or assigning it's own variable.
 # dict { header1: {1:0,2:...}, header2:...} 2d dict is looking most likely.
 columns = []
 count = len(passing_dataset.headers)
