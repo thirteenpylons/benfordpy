@@ -87,17 +87,17 @@ def test_readCsv(passing_dataset):
 
 
 @pytest.fixture(scope="module")
-def powerball_dataset():
+def partial_powerball_dataset():
     return Dataset("./testData/partial_powerball.csv")
 
 
-def test_iterateColumns(powerball_dataset):
+def test_iterateColumns(partial_powerball_dataset):
     """
     """
     pass
 
 
-def test_extractHeaders(powerball_dataset):
+def test_extractHeaders(partial_powerball_dataset):
     expected_result = [
                         'DrawingNumbers',
                         'Powerball',
@@ -109,10 +109,10 @@ def test_extractHeaders(powerball_dataset):
                         ]
 
 
-    assert powerball_dataset.extractHeaders() == expected_result, repr(f"Expected {expected_result} and got {powerball_dataset}")
+    assert partial_powerball_dataset.extractHeaders() == expected_result, repr(f"Expected {expected_result} and got {partial_powerball_dataset}")
 
 
-def test_countLeading(powerball_dataset):
+def test_countLeading(partial_powerball_dataset):
     """
     """
     expected_result = {
@@ -126,10 +126,10 @@ def test_countLeading(powerball_dataset):
                         8: 1,
                         9: 1
                         }
-    assert powerball_dataset.countLeading() == expected_result
+    assert partial_powerball_dataset.countLeading() == expected_result
 
 
-def test_extractData(powerball_dataset):
+def test_extractData(partial_powerball_dataset):
     """
     """
     expected_result = [
@@ -147,10 +147,10 @@ def test_extractData(powerball_dataset):
                         623
                         ]
 
-    assert powerball_dataset.extracted_data == expected_result
+    assert partial_powerball_dataset.extracted_data == expected_result
 
 
-def test_readCsv(powerball_dataset):
+def test_readCsv(partial_powerball_dataset):
     """
     """
     pass
@@ -160,11 +160,11 @@ def create_dataset_obj(name: str = None) -> Dataset:
     dataset = "test_data_passing.csv" if name is None else name
 
 
-# Where I left off...
-# Trying to extract each column from the dataset and thinking about
-# placing each column in dict() or assigning it's own variable.
-# dict { header1: {1:0,2:...}, header2:...} 2d dict is looking most likely.
-columns = []
-count = len(passing_dataset.headers)
-for i in range(count):
-    columns.append(passing_dataset.extractColumn(i))
+def test_sortByColumn(partial_powerball_dataset):
+    expected_result = [
+                        1, 11, 18, 30, 41, 6, 12, 17, 18, 42, 7, 12, 21, 25, 31,
+                        11, 16, 32, 37, 39, 4, 7, 11, 25, 40, 9, 28, 40, 42, 44,
+                        6, 17, 22, 27, 34, 9, 17, 19, 40, 41, 1, 4, 26, 35, 42,
+                        ]
+    result = partial_powerball_dataset.sorted_column[0]
+    assert expected_result == result

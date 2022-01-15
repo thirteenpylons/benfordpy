@@ -1,5 +1,10 @@
 """
-Try this as OOP
+
+TODO::Just work on extracting the first column and then extend
+
+When iterating determine the data type...
+    if data is a list: iterate the lists
+    if data is int: iterate through the integers
 
 Author: Christian M. Fulton
 Date: 31.Dec.2021
@@ -7,7 +12,7 @@ Modified: 03.Jan.2022
 """
 import csv
 import pandas as pd
-from typing import AbstractSet, Iterator, ValuesView
+from typing import AbstractSet, Any, Iterator, ValuesView
 
 
 class Dataset:
@@ -17,29 +22,53 @@ class Dataset:
         self.dataset = self.readCsv(self.filename)
         self.panda_data = pd.read_csv(self.filename)
         self.headers = self.extractHeaders()
-        self.extracted_data = self.extractData()
+        #self.extracted_data = self.extractData()
+        self.sorted_column = self.sortByColumn()
 
     
     def __str__(self) -> str:
         return f"{self.dataset}"
 
+    
+    def sortByColumn(self) -> list:
+        """
+        Sort each column into their own row and returns as a list.
+        """
+        number_of_rows = len(self.dataset)
+        number_of_columns = len(self.dataset[0])
+        grouped_by_column = []
+        for index_of_column in range(number_of_columns):
+            new_row_of_n_column = []
+            for index_of_row in range(number_of_rows):
+                new_row_of_n_column.append(self.dataset[index_of_row][index_of_column])
+            grouped_by_column.append(new_row_of_n_column)
+        return grouped_by_column
+
+
+    def extractColumn(self, data: list) -> list:
+        """
+        Extract the data from self.dataset[0]
+        if data is a list iterate the list and combine the lists into one
+        if the data is integers, put integers in list
+
+        return list
+        """
+        return list(data[0])
+
+    
+    def removeHeaderReturnColumn(self, data: list) -> list:
+        return data[1:] 
+        
 
     def checkForEmbeddedList(self, data: list) -> bool:
         """
         Determine whether the data consists of multi dimensional list
+
+        This may be replaced with just checking to see if type is list...
+            After working with lists I'll determine this.
         """
         return type(data[0]) == list
         
-
-    def extractColumn(self, column_index: int):
-        """
-        Will extract columns that contain integer values.
-
-        Parameter column_index: Index of column to extract.
-        Precondition: column_index must be a non empty integer
-        """
-        NotImplementedError
-
 
     def iterateColumns(self):
         """
@@ -110,24 +139,6 @@ class Dataset:
         return count
 
 
-    def extractData(self) -> list:
-        """
-        Pass a list through this function
-
-        TODO::FIX THIS
-
-        Identify the depth of the list and break it down.
-        """
-
-        result = []
-        for data in self.dataset:
-            for d in data:
-                if d.isdigit():
-                    result.append(int(d))
-        result = result or "Failed to find integer values."
-        return result
-
-
     def readCsv(self, filename: str) -> list:
         """
         Returns the contents read from the CSV file filename as list.
@@ -157,57 +168,3 @@ class Dataset:
         for key, value in numbers.items():
             percent = value * 100.0 / total
             print(key, percent)
-            
-
-    def keys(self) -> AbstractSet[BaseTag]:
-        """Return the :class:`Dataset` keys to simulate :meth:`dict.keys`.
-
-        Returns
-        -------
-        dict_keys
-            The :class:`~benfordpy.tag.BaseTag` of all the elements in
-            the :class:`Dataset`.
-        """
-        return self._dict.keys()
-
-
-    def values(self) -> ValuesView[_DatasetValue]:
-        """Return the :class:`Dataset` values to simulate :meth:`dict.values`.
-
-        Returns
-        -------
-        dict_keys
-            The :class:`DataElements<benfordpy.dataelem.DataElement>` that make
-            up the values of the :class:`Dataset`.
-        """
-        return self._dict.values()
-        
-
-    def __iter__(self) -> Iterator[DataElement]:
-        """Iterate through the top-level of the Dataset, yielding DataElements.
-
-        Examples
-        --------
-
-        >>> ds = Dataset()
-        >>> for elem in ds:
-        ...     print(elem)
-
-        The :class:`DataElements<benfordpy.dataelem.DataElement>` are returned in
-        increasing tag value order. Sequence items are returned as a single
-        :class:`~benfordpy.dataelem.DataElement`, so it is up
-        to the calling code to recurse into the Sequence items if desired.
-
-        Yields
-        ------
-        dataelem.DataElement
-            The :class:`Dataset`'s
-            :class:`DataElements<benfordpy.dataelem.DataElement>`, sorted by
-            increasing tag order.
-        """
-        # Note this is different than the underlying dict class,
-        #        which returns the key of the key:value mapping.
-        #   Here the value is returned (but data_element.tag has the key)
-        taglist = sorted(self._dict.keys())
-        for tag in taglist:
-            yield self[tag]
