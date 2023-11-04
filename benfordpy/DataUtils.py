@@ -38,9 +38,10 @@ class Dataset:
         number_of_columns = len(self.dataset[0])
         grouped_by_column = []
         for index_of_column in range(number_of_columns):
-            new_row_of_n_column = []
-            for index_of_row in range(number_of_rows):
-                new_row_of_n_column.append(self.dataset[index_of_row][index_of_column])
+            new_row_of_n_column = [
+                self.dataset[index_of_row][index_of_column]
+                for index_of_row in range(number_of_rows)
+            ]
             grouped_by_column.append(new_row_of_n_column)
         return grouped_by_column
 
@@ -159,12 +160,12 @@ class Dataset:
 
 
     # Should this be in a different class?
-    def getPercent(numbers: dict) -> dict:
+    def getPercent(self) -> dict:
         """
         @param numbers: dict of numbers to compute percentage
         Precondition numbers: must be a dict
         """
-        total = sum(numbers.values())
-        for key, value in numbers.items():
+        total = sum(self.values())
+        for key, value in self.items():
             percent = value * 100.0 / total
             print(key, percent)
