@@ -158,7 +158,7 @@ class Dataset:
         return data
 
 
-    # TODO: calculate percent --Should this be in a different class?
+    # Should this be in a different class?
     def getPercent(numbers: dict) -> dict:
         """
         @param numbers: dict of numbers to compute percentage

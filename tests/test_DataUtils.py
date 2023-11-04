@@ -24,8 +24,6 @@ def passing_dataset():
 
 
 def test_iterateColumns(passing_dataset):
-    """
-    """
     pass
 
 
@@ -44,8 +42,6 @@ def test_extractHeaders(passing_dataset):
 
 
 def test_countLeading(passing_dataset):
-    """
-    """
     expected_result = {
                         1: 3,
                         2: 1,
@@ -61,8 +57,6 @@ def test_countLeading(passing_dataset):
 
 
 def test_extractData(passing_dataset):
-    """
-    """
     expected_result = [
                         44352,
                         39332,
@@ -81,8 +75,6 @@ def test_extractData(passing_dataset):
 
 
 def test_readCsv(passing_dataset):
-    """
-    """
     pass
 
 
@@ -92,8 +84,6 @@ def partial_powerball_dataset():
 
 
 def test_iterateColumns(partial_powerball_dataset):
-    """
-    """
     pass
 
 
@@ -113,8 +103,6 @@ def test_extractHeaders(partial_powerball_dataset):
 
 
 def test_countLeading(partial_powerball_dataset):
-    """
-    """
     expected_result = {
                         1: 3,
                         2: 1,
@@ -130,8 +118,6 @@ def test_countLeading(partial_powerball_dataset):
 
 
 def test_extractData(partial_powerball_dataset):
-    """
-    """
     expected_result = [
                         44352,
                         39332,
@@ -151,8 +137,6 @@ def test_extractData(partial_powerball_dataset):
 
 
 def test_readCsv(partial_powerball_dataset):
-    """
-    """
     pass
 
 

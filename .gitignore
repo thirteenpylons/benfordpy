@@ -131,3 +131,4 @@ dmypy.json
 
 # others...
 projectDetail
+*.DS_Store
